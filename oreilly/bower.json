@@ -1,0 +1,25 @@
+{
+    "name": "oreilly",
+    "version": "1.0.0",
+    "description": "Creating exemples of oreilly's book",
+    "moduleType": [],
+    "keywords": [
+        "oreilly"
+    ],
+    "authors": [
+        "Victor Novy <novyvictor@gmail.com>"
+    ],
+    "license": "MIT",
+    "homepage": "",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "bootstrap": "~3.3.5",
+        "angular": "~1.4.7"
+    }
+}
