@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="basicApp">
+    <head>
+        <meta charset="utf-8">
+        <title>Basic of AngularJS</title>
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="styles/basic.css">
+
+        <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+        <script type="text/javascript" src="js/basic.js"></script>
+    </head>
+    <body ng-controller="RepeatCtrl as ctrl">
+        <div ng-repeat="note in ctrl.notes"
+             ng-class="ctrl.getNoteClass(note.done)">
+            <span>{{note.label}}</span>
+            <!-- ng-bind is similar to {{}},
+               - but ng-bind execute before AngularJS can find and
+               - replace all the double curly braces from the HTML
+               -->
+            <span class="status"
+                  ng-show="note.assignee"
+                  ng-bind="note.assignee">
+            </span>
+        </div>
+    </body>
+</html>
