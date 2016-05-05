@@ -12,18 +12,25 @@
         <script type="text/javascript" src="js/basic.js"></script>
     </head>
     <body ng-controller="RepeatCtrl as ctrl">
-        <div ng-repeat="(author, note) in ctrl.notes"
-             ng-class="ctrl.getNoteClass(note.done)">
-            <span>{{note.label}}</span>
-            <!-- ng-bind is similar to {{}},
-               - but ng-bind execute before AngularJS can find and
-               - replace all the double curly braces from the HTML
-               -->
-            <span class="status"
-                  ng-show="note.assignee"
-                  ng-bind="note.assignee">
-            </span>
-            <span>| {{author}}</span>
+        <div ng-repeat="(author, note) in ctrl.notes">
+             <div ng-class="ctrl.getNoteClass(note.done)">
+                <span>{{note.label}}</span>
+                <!-- ng-bind is similar to {{}},
+                   - but ng-bind execute before AngularJS can find and
+                   - replace all the double curly braces from the HTML
+                   -->
+                <span class="status"
+                    ng-show="note.assignee"
+                    ng-bind="note.assignee">
+                </span>
+                <span>| {{author}}</span>
+            </div>
+            <span>First Element: {{$first}}</span><br />
+            <span>Middle Element: {{$middle}}</span><br />
+            <span>Last Element: {{$last}}</span><br />
+            <span>Index of Element: {{$index}}</span><br />
+            <span>At Even Position: {{$even}}</span><br />
+            <span>At Odd Position: {{$odd}}</span><br />
         </div>
     </body>
 </html>
