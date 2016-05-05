@@ -12,30 +12,30 @@ basicApp.controller('MainCtrl', [function() {
 
 basicApp.controller('RepeatCtrl', [function() {
     var self = this;
-    self.notes = [
-        {
+    self.notes = {
+        "James": {
             "id": 1,
             "label": "First Note",
             "done": false
         },
-        {
+        "Misko": {
             "id": 2,
             "label": "Second Note",
             "done": false,
             "assignee": "Shyam"
         },
-        {
+        "Dao": {
             "id": 3,
             "label": "Done Note",
             "done": true
         },
-        {
+        "Brad": {
             "id": 4,
             "label": "Last Note",
             "done": false,
             "assignee": "Brad"
         }
-    ];
+    };
 
     self.getNoteClass = function(status) {
         return {

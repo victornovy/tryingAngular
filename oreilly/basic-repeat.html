@@ -12,7 +12,7 @@
         <script type="text/javascript" src="js/basic.js"></script>
     </head>
     <body ng-controller="RepeatCtrl as ctrl">
-        <div ng-repeat="note in ctrl.notes"
+        <div ng-repeat="(author, note) in ctrl.notes"
              ng-class="ctrl.getNoteClass(note.done)">
             <span>{{note.label}}</span>
             <!-- ng-bind is similar to {{}},
@@ -23,6 +23,7 @@
                   ng-show="note.assignee"
                   ng-bind="note.assignee">
             </span>
+            <span>| {{author}}</span>
         </div>
     </body>
 </html>
