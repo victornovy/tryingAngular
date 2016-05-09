@@ -12,10 +12,29 @@
         <script type="text/javascript" src="js/basic.js"></script>
     </head>
     <body ng-controller="BasicFormCtrl as ctrl">
-        <form ng-submit="ctrl.submit()">
-            <input type="text" ng-model="ctrl.user.username" placeholder="User"/>
-            <input type="password" ng-model="ctrl.user.password" placeholder="Password"/>
-            <input type="submit" value="Submit" />
+        <form ng-submit="ctrl.submit()" name="validationForm">
+            <input type="email"
+                ng-model="ctrl.user.email"
+                placeholder="Email" />
+            <input type="text"
+                ng-model="ctrl.user.username"
+                required
+                ng-minlength="4"
+                placeholder="User" />
+            <input type="password"
+                ng-model="ctrl.user.password"
+                required
+                placeholder="Password" />
+            <input type="submit"
+                value="Submit"
+                ng-disabled="validationForm.$invalid" />
+
+            <input type="text"
+                ng-model="ctrl.user.maxLength"
+                ng-maxLength="6"
+                placeholder="max length" />
+            <br /><text ng-class="ctrl.formHasError(validationForm.$pristine)">Changed</text>
+            <br /><text ng-class="ctrl.formHasError(validationForm.$invalid)">Valid</text>
         </form>
     </body>
 </html>
