@@ -44,3 +44,13 @@ basicApp.controller('RepeatCtrl', [function() {
         };
     };
 }]);
+
+basicApp.controller('BasicFormCtrl', [function() {
+    var self = this;
+    self.submit = function() {
+        console.log('User clicked submit with');
+        console.log(self.user);
+    };
+}]);
+
+

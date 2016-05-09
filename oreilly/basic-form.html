@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="basicApp">
+    <head>
+        <meta charset="utf-8">
+        <title>Basic Form of AngularJS</title>
+        <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+        <link rel="stylesheet" href="styles/basic.css">
+
+        <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+        <script type="text/javascript" src="js/basic.js"></script>
+    </head>
+    <body ng-controller="BasicFormCtrl as ctrl">
+        <form ng-submit="ctrl.submit()">
+            <input type="text" ng-model="ctrl.user.username" placeholder="User"/>
+            <input type="password" ng-model="ctrl.user.password" placeholder="Password"/>
+            <input type="submit" value="Submit" />
+        </form>
+    </body>
+</html>
