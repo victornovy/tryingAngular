@@ -12,39 +12,59 @@
         <script type="text/javascript" src="js/basic.js"></script>
     </head>
     <body ng-controller="BasicFormCtrl as ctrl">
-        <form ng-submit="ctrl.submit()" name="validationForm">
-            <input type="email"
-                name="email"
-                ng-model="ctrl.user.email"
-                placeholder="Email" />
-            <span ng-show="validationForm.email.$error.email">Invalid email</span>
-            <input type="text"
-                name="username"
-                ng-model="ctrl.user.username"
-                required
-                ng-minlength="4"
-                placeholder="User" />
-            <span ng-show="validationForm.username.$error.required">This is a required field</span>
-            <span ng-show="validationForm.username.$error.minlength">Minimum length required is 4</span>
-            <input type="password"
-                name="password"
-                ng-model="ctrl.user.password"
-                required
-                placeholder="Password" />
-            <span ng-show="validationForm.password.$error.required">This is a required field</span>
-            <input type="submit"
-                value="Submit"
-                ng-disabled="validationForm.$invalid" />
+        <div class="container">
+            <form ng-submit="ctrl.submit()" name="validationForm">
+                <div class="form-group">
+                    <input type="email"
+                        name="email"
+                        class="form-control"
+                        ng-model="ctrl.user.email"
+                        placeholder="Email" />
+                    <span ng-show="validationForm.email.$error.email">Invalid email</span>
+                </div>
 
-            <input type="text"
-                name="maxLength"
-                ng-model="ctrl.user.maxLength"
-                ng-maxLength="6"
-                placeholder="max length" />
-            <span ng-show="validationForm.maxLength.$error.maxlength">Maximum length required is 6</span>
+                <div class="form-group">
+                    <input type="text"
+                        name="username"
+                        class="form-control"
+                        required
+                        ng-model="ctrl.user.username"
+                        ng-minlength="4"
+                        placeholder="User" />
+                    <span ng-show="validationForm.username.$error.required">This is a required field</span>
+                    <span ng-show="validationForm.username.$error.minlength">Minimum length required is 4</span>
+                </div>
 
-            <br /><text ng-class="ctrl.formHasError(validationForm.$pristine)">Changed</text>
-            <br /><text ng-class="ctrl.formHasError(validationForm.$invalid)">Valid</text>
-        </form>
+                <div class="form-group">
+                    <input type="password"
+                        name="password"
+                        class="form-control"
+                        required
+                        ng-model="ctrl.user.password"
+                        placeholder="Password" />
+                    <span ng-show="validationForm.password.$error.required">This is a required field</span>
+                </div>
+
+                <div class="form-group">
+                    <input type="text"
+                        name="maxLength"
+                        class="form-control"
+                        ng-model="ctrl.user.maxLength"
+                        ng-maxLength="6"
+                        placeholder="Max length 6" />
+                    <span ng-show="validationForm.maxLength.$error.maxlength">Maximum length required is 6</span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit"
+                        value="Submit"
+                        class="btn btn-info"
+                        ng-disabled="validationForm.$invalid" />
+                </div>
+
+                <br /><span ng-class="ctrl.formHasError(validationForm.$pristine)">Changed</span>
+                <br /><span ng-class="ctrl.formHasError(validationForm.$invalid)">Valid</span>
+            </form>
+        </div>
     </body>
 </html>
