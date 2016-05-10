@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="basicApp">
+    <head>
+        <meta charset="utf-8">
+        <title>Nested Forms in AngularJS</title>
+        <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+        <link rel="stylesheet" href="styles/basic.css">
+
+        <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+        <script type="text/javascript" src="js/basic.js"></script>
+    </head>
+    <body>
+        <form novalidate name="nestedForm">
+            <input type="text"
+                name="username"
+                class="username"
+                required=""
+                placeholder="Username"
+                ng-model="ctrl.user.username"
+                ng-minlength="4" />
+            <input type="text"
+                name="password"
+                class="password"
+                required=""
+                placeholder="Password"
+                ng-model="ctrl.user.password"
+                ng-maxlength="10" />
+
+            <ng-form name="profile">
+                <input type="text"
+                    name="firstName"
+                    required
+                    placeholder="First Name"
+                    ng-model="ctrl.user.profile.firstName" />
+                <input type="text"
+                    name="middleName"
+                    required
+                    placeholder="Middle Name"
+                    ng-model="ctrl.user.profile.middleName" />
+                <input type="text"
+                    name="lastName"
+                    required
+                    placeholder="Last Name"
+                    ng-model="ctrl.user.profile.lastName" />
+                <input type="date"
+                    name="dob"
+                    required
+                    placeholder="Date of Birth"
+                    ng-model="ctrl.user.profile.dob" />
+                <span ng-show="nestedForm.profile.$invalid">Please fill out the profile information</span>
+            </ng-form>
+
+            <input type="submit"
+                value="Submit"
+                ng-disabled="nestedForm.$invalid" />
+        </form>
+    </body>
+</html>
