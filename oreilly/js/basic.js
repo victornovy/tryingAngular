@@ -58,5 +58,3 @@ basicApp.controller('BasicFormCtrl', [function() {
         };
     };
 }]);
-
-

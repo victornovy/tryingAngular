@@ -17,7 +17,7 @@
                 <div class="form-group">
                     <input type="email"
                         name="email"
-                        class="form-control"
+                        class="form-control email"
                         ng-model="ctrl.user.email"
                         placeholder="Email" />
                     <span ng-show="validationForm.email.$error.email">Invalid email</span>
@@ -26,7 +26,7 @@
                 <div class="form-group">
                     <input type="text"
                         name="username"
-                        class="form-control"
+                        class="form-control username"
                         required
                         ng-model="ctrl.user.username"
                         ng-minlength="4"

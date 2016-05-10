@@ -13,3 +13,9 @@
 .form-success {
     color: green;
 }
+
+/*this is an example, there are others*/
+.email.ng-invalid.ng-invalid-email {
+    background-color: red;
+    color: white;
+}
