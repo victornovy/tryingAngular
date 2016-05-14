@@ -80,6 +80,30 @@
                                 ng-false-value="'No'" /> Do you like sports?
                         </label>
                     </div>
+                    <div class="form-group">
+                        <label class="check-inline">
+                            <input type="checkbox"
+                                name="likeSports"
+                                ng-model="ctrl.user.profile.series" /> Do you like TV Series?
+                        </label>
+                        <span>{{ctrl.user.profile.likeSports}}</span>
+                        <span>{{ctrl.user.profile.series}}</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input type="radio"
+                                name="gender"
+                                ng-model="user.gender"
+                                value="male" />Male
+                        </label>
+                        <label>
+                            <input type="radio"
+                                name="gender"
+                                ng-model="user.gender"
+                                value="female" />Female
+                        </label>
+                    </div>
                 </ng-form>
 
                 <input type="submit"
