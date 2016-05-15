@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="basicApp">
+    <head>
+        <meta charset="utf-8">
+        <title>Need for Service in AngularJS</title>
+        <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+        <link rel="stylesheet" href="styles/basic.css">
+
+        <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+        <script type="text/javascript" src="js/basic.js"></script>
+    </head>
+    <body ng-controller="NeedForService as ctrl">
+        <h1>Hello Controllers!</h1>
+        <button class="btn btn-success" ng-click="ctrl.open('first')">Open First</button>
+        <button class="btn btn-success" ng-click="ctrl.open('second')">Open Second</button>
+        <div ng-switch on="ctrl.tab">
+            <div ng-switch-when="first">
+                <div ng-controller="NeedForServiceSub as sub">
+                    <h3>First Tab</h3>
+                    <ul>
+                        <li ng-repeat="item in sub.list">
+                            <span ng-bind="item.label"></span>
+                        </li>
+                    </ul>
+                    <button class="btn btn-warning" ng-click="sub.add()">Add more items</button>
+                </div>
+            </div>
+            <div ng-switch-when="second">
+                <div ng-controller="NeedForServiceSub as sub">
+                    <h3>Second Tab</h3>
+                    <ul>
+                        <li ng-repeat="item in sub.list">
+                            <span ng-bind="item.label"></span>
+                        </li>
+                    </ul>
+                    <button class="btn btn-warning" ng-click="sub.add()">Add more items</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

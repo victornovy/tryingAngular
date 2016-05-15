@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="basicApp">
+    <head>
+        <meta charset="utf-8" />
+        <title>Services - Log Example</title>
+
+        <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+        <link rel="stylesheet" href="styles/basic.css">
+
+        <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+        <script type="text/javascript" src="js/basic-service.js"></script>
+    </head>
+    <body ng-controller="LogService as mainCtrl">
+        <h1>SERVICES</h1>
+        <button class="btn btn-info" ng-click="mainCtrl.logStuff()">Log Something</button>
+    </body>
+</html>
