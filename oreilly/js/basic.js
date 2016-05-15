@@ -68,18 +68,36 @@ basicApp.controller('NeedForService', [function() {
     };
 }]);
 
-basicApp.controller('NeedForServiceSub', [function() {
+basicApp.controller('NeedForServiceSub', ['ItemService', function(ItemService) {
     var self = this;
 
-    self.list = [
+    self.list = function() {
+        return ItemService.list();
+    };
+
+    self.add = function() {
+        var newId = self.list().length + 1;
+        var newLabel = 'Item ' + newId;
+        var newItem = {id: newId, label: newLabel};
+        ItemService.add(newItem);
+    };
+}]);
+
+basicApp.factory('ItemService', [function() {
+    var self = this;
+
+    var items = [
         {id: 1, label: "Item 1"},
         {id: 2, label: "Item 2"},
         {id: 3, label: "Item 3"}
     ];
 
-    self.add = function() {
-        var newId = self.list.length + 1;
-        var newLabel = 'Item ' + newId;
-        self.list.push({id: newId, label: newLabel});
+    return {
+        list: function() {
+            return items;
+        },
+        add: function(item) {
+            items.push(item);
+        }
     };
 }]);

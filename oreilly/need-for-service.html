@@ -20,7 +20,7 @@
                 <div ng-controller="NeedForServiceSub as sub">
                     <h3>First Tab</h3>
                     <ul>
-                        <li ng-repeat="item in sub.list">
+                        <li ng-repeat="item in sub.list()">
                             <span ng-bind="item.label"></span>
                         </li>
                     </ul>
@@ -31,7 +31,7 @@
                 <div ng-controller="NeedForServiceSub as sub">
                     <h3>Second Tab</h3>
                     <ul>
-                        <li ng-repeat="item in sub.list">
+                        <li ng-repeat="item in sub.list()">
                             <span ng-bind="item.label"></span>
                         </li>
                     </ul>

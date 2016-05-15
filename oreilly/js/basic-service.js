@@ -4,6 +4,6 @@ app.controller('LogService', ['$log', function($log) {
     var self = this;
 
     self.logStuff = function() {
-        $log.log('The button was pressed')
+        $log.log('The button was pressed');
     };
 }]);
