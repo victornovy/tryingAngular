@@ -58,3 +58,28 @@ basicApp.controller('BasicFormCtrl', [function() {
         };
     };
 }]);
+
+basicApp.controller('NeedForService', [function() {
+    var self = this;
+
+    self.tab = 'first';
+    self.open = function(tab) {
+        self.tab = tab
+    };
+}]);
+
+basicApp.controller('NeedForServiceSub', [function() {
+    var self = this;
+
+    self.list = [
+        {id: 1, label: "Item 1"},
+        {id: 2, label: "Item 2"},
+        {id: 3, label: "Item 3"}
+    ];
+
+    self.add = function() {
+        var newId = self.list.length + 1;
+        var newLabel = 'Item ' + newId;
+        self.list.push({id: newId, label: newLabel});
+    };
+}]);
