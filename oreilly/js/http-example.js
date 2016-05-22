@@ -1,24 +1,40 @@
 var notesApp = angular.module('notesApp', []);
 
-notesApp.controller('MainCtrl', ['$http', function($http) {
+notesApp.controller('MainCtrl', ['NotesService', function(notesService) {
     var self = this;
 
     self.items = [],
         newTodo = {};
 
-    var fetchData = function() {
-        $http.get('/api/notes').then(function(response) {
-            self.items = response.data;
-        }, function(errResponse) {
-            console.error('Error while fetching notes.',errResponse);
-        });
+    var setNotes = function(allNotes) {
+        self.items = allNotes.data;
     };
 
-    fetchData();
+    notesService.query().then(setNotes);
 
     self.add = function() {
-        $http.post('/api/note', self.newTodo).then(function(fetching) {
-            self.items = fetching.data;
-        });
+        notesService.add(self.newTodo).then(setNotes);
     };
+}]);
+
+notesApp.factory('NotesService', ['$http', function($http) {
+
+    var query = function() {
+        return $http.get('/api/notes');
+    };
+
+    var add = function(newNote) {
+        return $http.post('/api/note', newNote);
+    };
+
+    var finishNote = function(noteDetail) {
+        var noteId = noteDetail.id;
+        return $http.post('/api/note/' + noteId, noteId);
+    };
+
+    return {
+        "query": query,
+        "add": add,
+        "finishNote": finishNote
+    }
 }]);
