@@ -35,9 +35,9 @@ router.post('/note', function(req, res) {
     res.send(notes);
 });
 
-router.post('/note/:id/', function(req, res) {
-    var note = notes.filter(function(note) {
-        return note.id = req.params.id;
+router.post('/note/:id/done', function(req, res) {
+    var note = notes.find(function(note) {
+        return note.id === parseInt(req.params.id);
     });
     note.label = 'Done - ' + note.label;
     res.send(notes);
@@ -46,7 +46,7 @@ router.post('/note/:id/', function(req, res) {
 router.get('/note/:id', function(req, res) {
     var code = 200,
         note = notes.filter(function(note) {
-            return note.id = req.params.id;
+            return note.id === parseInt(req.params.id);
         });
 
     if (!note.length) {
@@ -54,24 +54,23 @@ router.get('/note/:id', function(req, res) {
         note = {msg: 'Note not found.'};
     }
 
-    res.send(note, code);
+    res.status(code).send(note);
 });
 
 router.post('/note/:id', function(req, res) {
     var code = 200,
-        note = notes.filter(function(note) {
-            return note.id = req.params.id;
+        note = notes.find(function(note) {
+            return note.id === parseInt(req.params.id);
         });
 
-    if (!!note.length) {
+    if (!!note) {
         note.label = req.body.label;
         note.author = req.body.author;
     } else {
         code = 404;
         note = {msg: 'Note not found.'};
     }
-
-   res.send(note, code);
+    res.status(code).send(note);
 });
 
 app.use('/api', router);
