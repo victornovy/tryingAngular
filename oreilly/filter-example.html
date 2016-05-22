@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html ng-app="filterApp">
+    <head>
+        <meta charset="utf-8">
+        <title>Using AngularJS' Filter</title>
+        <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
+        <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+        <script type="text/javascript" src="js/filter-example.js"></script>
+    </head>
+    <body ng-controller="FilterCtrl as ctrl">
+        <div>
+            Amount as a number: {{ctrl.amount | number}}
+        </div>
+        <div>
+            Amount - With 4 decimals: {{ctrl.amount | number:4}}
+        </div>
+        <div>
+            Total Cost as a currency: {{ctrl.totalCost | currency}}
+        </div>
+        <div>
+            Total Cost in INR: {{ctrl.totalCost | currency: 'INR'}}
+        </div>
+        <div>
+            Amount - INR Currency: {{ctrl.amount | currency:'&#163 '}}
+        </div>
+        <br />
+        <div>
+            Shouting the name: {{ctrl.name | uppercase}}
+        </div>
+        <div>
+            Whispering the name: {{ctrl.name | lowercase}}
+        </div>
+        <br />
+        <div>
+            Timestamp: {{ctrl.startTime}}
+        </div>
+        <div>
+            Start Time: {{ctrl.startTime | date:'medium'}}
+        </div>
+        <div>
+            Default Date filter: {{ctrl.startTime | date}}
+        </div>
+        <div>
+            Medium Date filter: {{ctrl.startTime | date:'medium'}}
+        </div>
+        <div>
+            Custom Date filter: {{ctrl.startTime | date:'dd/M, yyyy'}}
+        </div>
+        <br />
+        <div>
+            JSON: {{ctrl.obj | json}}
+        </div>
+        <br />
+        <button ng-click="ctrl.currentFilter = 'string'">
+            Filter with string
+        </button>
+        <button ng-click="ctrl.currentFilter = 'function'">
+            Filter with function
+        </button>
+        <button ng-click="ctrl.currentFilter = 'object'">
+            Filter with object
+        </button>
+        <input type="text"
+            placeholder="Filter Text"
+            ng-model="ctrl.filterOptions['string']" />
+        <input type="text"
+            placeholder="Limit"
+            ng-model="ctrl.limit" />
+        <input type="checkbox"
+            ng-model="ctrl.filterOptions['object'].done">Show done only
+        <ul>
+            <li ng-repeat="note in ctrl.notes
+                | filter: ctrl.filterOptions[ctrl.currentFilter]
+                | orderBy: ctrl.sortOrder
+                | limitTo: ctrl.limit">
+                {{note.label}} - {{note.type}} - {{note.done}}
+            </li>
+        </ul>
+    </body>
+</html>
