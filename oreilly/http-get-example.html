@@ -15,7 +15,24 @@
         <h1>First $http</h1>
         <div ng-repeat="todo in ctrl.items">
             <div><span ng-bind="todo.label"></span></div>
-            <div> by <span ng-bind="todo.author"></span></div>
+            <div>- by <span ng-bind="todo.author"></span></div>
+        </div>
+
+        <div>
+            <form name="addForm" novalidate="true"
+                ng-submit="ctrl.add()">
+                <input type="text"
+                    placeholder="Label"
+                    required
+                    ng-model="ctrl.newTodo.label" />
+                <input type="text"
+                    placeholder="Author"
+                    required
+                    ng-model="ctrl.newTodo.author"/>
+                <input type="submit"
+                    value="Add"
+                    ng-disabled="addForm.$invalid" />
+            </form>
         </div>
     </body>
 </html>

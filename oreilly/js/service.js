@@ -1,7 +1,10 @@
 var express = require('express'),
     path = require('path'),
+    bodyParser = require('body-parser'),
     app = express();
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 app.use('/js', express.static(__dirname + '/../js'));
 app.use('/bower_components', express.static(__dirname + '/../bower_components'));
 app.use('/styles', express.static(__dirname + '/../styles'));
@@ -18,7 +21,7 @@ var router = express.Router(),
         {id: 4, label: 'Fourth', author: 'Steam'},
         {id: 5, label: 'Fifth', author: 'Sho'}
     ],
-    lastId = 6;
+    lastId = 5;
 
 router.get('/notes', function(req, res) {
     res.send(notes);
@@ -26,10 +29,9 @@ router.get('/notes', function(req, res) {
 
 router.post('/note', function(req, res) {
     var note = req.body;
-    note.id = lastId;
-    lastId++;
+    note.id = ++lastId;
     notes.push(note);
-    res.send(note);
+    res.send(notes);
 });
 
 router.post('/note/:id/', function(req, res) {
