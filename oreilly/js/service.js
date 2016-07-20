@@ -11,6 +11,7 @@ app.use('/bower_components', express.static(__dirname + '/../bower_components'))
 app.use('/styles', express.static(__dirname + '/../styles'));
 
 app.get('/', function(req, res) {
+    //TODO verify res.render function
     res.sendFile(path.join(__dirname + '/../http-get-example.html'));
 });
 

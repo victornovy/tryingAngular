@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="test" lang="en">
+    <head>
+        <meta charset="UTF-8">
+
+        <title>Angular Material</title>
+
+        <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+
+        <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+        <script type="text/javascript" src="bower_components/angular-animate/angular-animate.js"></script>
+        <script type="text/javascript" src="bower_components/angular-aria/angular-aria.js"></script>
+        <script type="text/javascript" src="bower_components/angular-messages/angular-messages.js"></script>
+        <script type="text/javascript" src="bower_components/angular-material/angular-material.js"></script>
+        <script type="text/javascript" src="js/test.js"></script>
+    </head>
+    <body ng-controller="MainCtrl as ctrl">
+        <h1 ng-bind="ctrl.noCache"></h1>
+        <md-checkbox ng-model="ctrl.noCache">Disable caching of queries?</md-checkbox>
+    </body>
+</html>

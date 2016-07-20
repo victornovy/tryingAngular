@@ -1,0 +1,14 @@
+{
+  "name": "material",
+  "homepage": "https://github.com/victornovy/tryingAngular",
+  "authors": [
+    "Victor Novy <novyvictor@gmail.com>"
+  ],
+  "description": "test angular material",
+  "main": "",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-material": "^1.0.9"
+  }
+}
