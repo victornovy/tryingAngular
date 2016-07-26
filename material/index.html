@@ -16,6 +16,18 @@
     </head>
     <body ng-controller="MainCtrl as ctrl">
         <h1 ng-bind="ctrl.noCache"></h1>
-        <md-checkbox ng-model="ctrl.noCache">Disable caching of queries?</md-checkbox>
+        <md-checkbox class="md-primary" ng-model="ctrl.noCache">Disable caching of queries?</md-checkbox>
+        <br>
+        <md-icon md-svg-icon="bower_components/material-design-icons/alert/svg/design/ic_add_alert_24px.svg" class="alarm" aria-label="Alarm Icon"></md-icon>
+        <br>
+        <md-button class="md-primary md-raised">Test Button</md-button>
+        <md-button class="md-raised">Button</md-button>
+        <md-button class="md-raised md-primary">Primary</md-button>
+        <md-button ng-disabled="true" class="md-raised md-primary">Disabled</md-button>
+        <md-button class="md-raised md-warn">Warn</md-button>
+        <md-button class="md-raised md-erro">Error</md-button>
+        <md-button class="md-primary md-hue-1">md-hue-1</md-button>
+        <md-button class="md-raised md-warn md-hue-2">md-hue-2</md-button>
+        <md-button class="md-accent md-raised md-hue-1">accent</md-button>
     </body>
 </html>

@@ -9,6 +9,7 @@
   "license": "MIT",
   "dependencies": {
     "angular": "^1.5.7",
-    "angular-material": "^1.0.9"
+    "angular-material": "^1.0.9",
+    "material-design-icons": "^2.2.3"
   }
 }
